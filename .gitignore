@@ -2,3 +2,4 @@
 *.pyo
 *.cpython-39
 data/*
+images/*
