@@ -1,0 +1,190 @@
+/*
+There is a fair bit of dead code here, sorry. I've removed the whole headings
+which have no impact on this document, but unfortunately there is a fair bit of
+excess since this is just a copy paste from assignment one. For your convenience,
+the important stuff is right up the top.
+*/
+
+/* General niceties for the target block */
+#target {
+    font-family: "Century Gothic";
+    padding: 20px;
+}
+
+/* Padding to sperate the form label from the text box*/
+.form-label {
+    padding-bottom: 10px;
+}
+
+/* Padding + margin around the text box to make it somewhat clean and readable*/
+.form-input {
+    margin-bottom: 20px;
+    padding:8px 10px;
+    width: 50%;
+    margin-right: 50%;
+}
+
+/* Button size and a margin to keep it clear of the error text */
+.submit {
+    padding:10px 50px;
+    margin-bottom: 10px;
+}
+
+body {
+    margin: 0;
+    margin-top: 0;
+    background-color: #f7f9fb;
+}
+
+header {
+    padding-top: 40px;
+    background-color: #687864;
+}
+
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-left: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #182628;
+}
+
+nav ul {
+    padding-left: 2%;
+    margin: 0;
+}
+
+nav li {
+    list-style-type: none;
+    float: left;
+    font-family: sans-serif;
+  }
+  
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+nav li a:hover {
+    background-color: #111;
+}
+
+#content {
+    margin: 20px 20px;
+    margin-bottom: 0px;
+    
+}
+
+#content::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#search-button {
+    display: inline-block;
+    margin-top: 16px;
+}
+
+#heading::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#heading hgroup h1 {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #31708E;
+    text-align: center;
+    font-family: sans-serif;
+    position: static;
+}
+
+#heading hgroup h2 {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding: 15px;
+    background-color: #8fc1e3;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#heading p {
+    font-family: sans-serif;
+    padding: 20px;
+    margin: 0px;
+    margin-bottom: 20px;
+    float: left;
+    width: 70%;
+    background-color:#d7ecfc;
+    height: 416px;
+}
+
+#heading figure {
+    margin: 0px;
+    margin-bottom: 20px;
+    float: left;
+    width: 30%;
+    background-color:#cce8fc;
+    height: 416px;
+}
+
+#heading figure img {
+    display: block;
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#heading figure figcaption {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+footer {
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 100px;
+    margin-bottom: 20px;    
+    
+    background-color: #8fc1e3;
+}
+
+#social {
+    font-family: sans-serif;
+    float: left;
+    padding-top: 0px;
+    position: relative;
+}
+
+footer p {
+    padding: 40px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+footer ul {
+    font-family: sans-serif;
+    float: right;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+
+

@@ -46,4 +46,7 @@ with open("imagenet_classes.txt", "r") as f:
 # Show top categories per image
 top5_prob, top5_catid = torch.topk(probabilities, 5)
 for i in range(top5_prob.size(0)):
-    print(categories[top5_catid[i]], top5_prob[i].item())
+    val = (top5_prob[i].item())*100
+    #val = val*100
+    formatted = "{:.2f}".format(val)
+    print(categories[top5_catid[i]], formatted, "%")
