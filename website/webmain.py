@@ -1,31 +1,42 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
-import time
+from flask import Flask, render_template, request
+from main import process_img
+import json
 
 hostName = "localhost"
-serverPort = 8010
+serverPort = 8080
 
-class server(BaseHTTPRequestHandler):
-    def do_GET(self):
-        if self.path == '/':
-           self.path = '/views/index.html'    
-        try:
-           open_page = open(self.path[1:]).read()
-           self.send_response(200)
-        except:
-            open_page = "page not found"
-            self.send_response(404)
 
-        self.end_headers()
-        self.wfile.write(bytes(open_page, 'utf-8'))
+app = Flask(__name__)
 
-if __name__ == "__main__":        
-    server = HTTPServer((hostName, serverPort), server)
-    print("Server started http://%s:%s" % (hostName, serverPort))
+@app.route("/", methods = ["GET", "POST"])
+def main():
+    return render_template('index.html')
 
-    try:
-        server.serve_forever()
-    except KeyboardInterrupt:
-        pass
+@app.route("/upload", methods = ["GET", "POST"])
+def upload():
 
-    server.server_close()
-    print("Server stopped.")
+    if request.method == "POST":
+        if request.files:
+
+            image = request.files["fileImage"]
+            print(image)
+            if image.filename == "":
+                print("blank img")
+            else:
+                image.save("./static/js/img/tmp.jpg")
+                json_data = process_img()
+                print(json_data)
+                with open('data.json', 'w') as f:
+                    json.dump(json_data, f)
+    else:
+        print ('why llmao')
+        with open('data.json') as json_file:
+            json_data = json.load(json_file)
+        return json_data
+
+    return render_template('index.html')
+
+
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=8080)
