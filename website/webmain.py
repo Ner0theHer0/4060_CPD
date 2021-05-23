@@ -24,17 +24,20 @@ def upload():
                 print("blank img")
             else:
                 image.save("./static/js/img/tmp.jpg")
-                json_data = process_img()
-                print(json_data)
-                with open('data.json', 'w') as f:
-                    json.dump(json_data, f)
+                
     else:
         print ('why llmao')
+
+        json_data = process_img()
+        print(json_data)
+        with open('data.json', 'w') as f:
+            json.dump(json_data, f)
+
         with open('data.json') as json_file:
             json_data = json.load(json_file)
         return json_data
 
-    return render_template('index.html')
+    return render_template('up.html')
 
 
 
