@@ -11,13 +11,9 @@ let s3 = document.getElementById("getter")
 var img = document.createElement("img");
 
 window.onload = function() {
-    // s1.onclick = function() {
-    //     img.src = "static/js/img/tmp.jpg"
-
-    //     var src = document.getElementById("forImg")
-
-    //     src.appendChild(img)
-    // }
+    s1.onclick = function() {
+        window.location.href='/'
+    }
 
     // s2.onclick = function() {
     //     // var input = document.createElement('input');
