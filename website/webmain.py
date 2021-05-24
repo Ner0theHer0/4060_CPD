@@ -26,7 +26,6 @@ def upload():
                 image.save("./static/js/img/tmp.jpg")
                 
     else:
-        print ('why llmao')
 
         json_data = process_img()
         print(json_data)
