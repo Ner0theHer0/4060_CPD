@@ -34,6 +34,7 @@ body {
     margin: 0;
     margin-top: 0;
     background-color: #f7f9fb;
+    height:100%;
 }
 
 header {
@@ -100,8 +101,8 @@ nav li a:hover {
     display: table;
 }
 
-#heading hgroup h1 {
-    margin-top: 20px;
+h1 {
+    margin-top: 0px;
     padding: 15px;
     background-color: #31708E;
     text-align: center;
@@ -186,5 +187,100 @@ footer ul {
     padding-right: 20px;
 }
 
+#left {
+    float: left;
+    width: 60%;
+    height: 88vh;
+    overflow: hidden;
+    padding-top: 50px;
+    background-color: #8fc1e3;
+    margin: 1.5%;
+}
+
+#right {
+    font-family: "Century Gothic";
+    float: right;
+    width:34%;
+    height: 100%;
+    overflow: hidden;
+    padding-top: 50px;
+    background-color:#31708E;
+    margin-right: 1.5%;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    margin-left:0;
+    height: 88vh;
+}
+
+
+
+.custom-file-input {
+    margin-left:10%;
+    border: 1px solid #ccc;
+    display: inline-block;
+    width: 65%;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#try {
+    background-color: #cce8fc; /* Green */
+    border: none;
+    color: black;
+    padding: 15px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#try:hover {
+    background-color: #8fc1e3;
+}
+
+input[type=file] {
+    background-color: #cce8fc; /* Green */
+    border: none;
+    color: black;
+    padding: 12px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+#forImg2 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height:50%;
+}
+
+img {
+    width : 600px;
+    height:50%;
+    
+    height: auto; /*to preserve the aspect ratio of the image*/
+}
+
+#forTxt {
+    color:black;
+    margin-left: 10%;
+}
+
+#texty {
+    font-family: "Century Gothic";
+    padding-left:10%;
+    padding-right:10%;
+}
+
+#lolimg {
+    width : 100%;
+    padding:5%;
+    margin-top:10%;
+    
+    height: auto; /*to preserve the aspect ratio of the image*/
+}
 
 

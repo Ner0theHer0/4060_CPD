@@ -30,7 +30,7 @@ if __name__ == "__main__":
             'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
     
-
+    #LeNet 5 layer model
 
     class Net(nn.Module):
         def __init__(self):
@@ -45,7 +45,7 @@ if __name__ == "__main__":
         def forward(self, x):
             x = self.pool(F.relu(self.conv1(x)))
             x = self.pool(F.relu(self.conv2(x)))
-            x = torch.flatten(x, 1) # flatten all dimensions except batch
+            x = torch.flatten(x, 1)
             x = F.relu(self.fc1(x))
             x = F.relu(self.fc2(x))
             x = self.fc3(x)

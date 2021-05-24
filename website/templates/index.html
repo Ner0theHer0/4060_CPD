@@ -9,17 +9,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
-<body>
 
-    <!-- <button type="button" id="upload">try lel</button> -->
-    <form method = "post" action = "/upload" enctype="multipart/form-data" accept-charset="">
-    <input type = 'file' name = 'fileImage' accept = ".jpg, .png">
-    <input type = submit id="try" value = 'upload1'>
-    
-    <div>
-        <button type="button" id="test">imgeg</button>
-        <button type="button" id="getter">get</button>
+<header>
+    <div id="logo"></div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">LeNet</a></li>
+            <li><a href="#">ResNet</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <div id="left">
+        <div id="texty">
+            <h2>What is Machine Learning?</h2>
+            <p>Machine learning is a branch of artificial intelligence (AI) focused on
+             building applications that learn from data and improve their accuracy
+              over time without being programmed to do so. </p>
+
+            <h2>What About Neural Networks?</h2>
+            <p>A neural network is a tpye of Machine learning that involves series of algorithms that endeavors to recognize 
+                underlying relationships in a set of data through a process that mimics 
+                the way the human brain operates. In this sense, neural networks refer to 
+                systems of neurons, either organic or artificial in nature.</p>
+        </div>
+        
     </div>
+    <div id="right">
+        <h1>Upload an image</h1>
+        <form method = "post" action = "/upload" enctype="multipart/form-data" accept-charset="">
+        <input type = 'file' name = 'fileImage' accept = ".jpg, .png" class="custom-file-input">
+        <input type = submit id="try" value = 'Upload'>
+        <img src="static/aib.jpg" id = "lolimg">
+    </div>
+    <!-- <button type="button" id="upload">try lel</button> -->
+    
+    
+    
     <div id = "forImg">
 
     </div>

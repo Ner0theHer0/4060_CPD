@@ -16,21 +16,34 @@
     <input type = 'file' name = 'fileImage' accept = ".jpg, .png">
     <input type = submit id="try" value = 'upload1'>
     -->
-    <div>
-        <button type="button" id="test">home</button>
-        <!-- <a href="{{url_for('main') }}">home</a> -->
-        
-    </div>
+
+    <header>
+        <div id="logo"></div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+   <div id="left">
     <div id = "forImg2">
-        <img src="static/js/img/tmp.jpg" alt="Italian Trulli">
+        <h2>You uploaded:</h2>
+        <img src="static/js/img/tmp.jpg">
     </div>
-    <div id = "forTxt">
-        <p id="line1">Processing image...</p>
-        <p id="line2"></p>
-        <p id="line3"></p>
-        <p id="line4"></p>
-        <p id="line5"></p>
+   </div>
+    <div id = "right">
+        
+        <div id = "forTxt">
+            <h2>The model thinks this is:</h2>
+            <p id="line1">Processing image...</p>
+            <p id="line2"></p>
+            <p id="line3"></p>
+            <p id="line4"></p>
+            <p id="line5"></p>
+        </div>
     </div>
+    
     
 </form>
 </body>
