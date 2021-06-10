@@ -1,64 +1,47 @@
-import torch
-from torchvision import models
-from PIL import Image
-from torchvision import transforms
+from flask import Flask, render_template, request
+from img_processor import process_img
 import json
 
-def process_img():
-    resnet = models.resnet101(pretrained=True)
-
-    resnet.eval()
-
-    input_image = Image.open("./static/js/img/tmp.jpg")
-
-    if (input_image.format != 'JPEG'):
-        temp_image = input_image.convert("RGB")
-        print(input_image.mode)
-        temp_image.save('./static/js/img/tmp.jpg', quality=100)
-        input_image = Image.open("./static/js/img/tmp.jpg")
-
-    #Preprocessing
-    preprocess = transforms.Compose([
-        transforms.Resize(256),
-        transforms.CenterCrop(224),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-    ])
-
-    input_tensor = preprocess(input_image)
-
-    input_batch = input_tensor.unsqueeze(0)
-
-    if torch.cuda.is_available():
-        input_batch = input_batch.to('cuda')
-        resnet.to('cuda')
-
-    with torch.no_grad():
-        output = resnet(input_batch)
-
-    #print(output[0])
-
-    probabilities = torch.nn.functional.softmax(output[0], dim=0)
-    #print(probabilities)
+hostName = "localhost"
+serverPort = 8080
 
 
+app = Flask(__name__)
 
-    with open("imagenet_classes.txt", "r") as f:
-        categories = [s.strip() for s in f.readlines()]
-    # Show top categories per image
-    top5_prob, top5_catid = torch.topk(probabilities, 5)
-    prob = []
-    names = []
-    for i in range(top5_prob.size(0)):
-        val = (top5_prob[i].item())*100
-        #val = val*100
-        formatted = "{:.2f}".format(val)
-        prob.append(formatted)
-        names.append(categories[top5_catid[i]])
-        print(categories[top5_catid[i]], formatted, "%")
+# Homepage redirect
+@app.route("/", methods = ["GET", "POST"])
+def main():
+    return render_template('index.html')
 
-    data = {}
-    data['names'] = names
-    data['prob'] = prob
-    json_data = json.dumps(data)
-    return (json_data)
+# Image processing redirect
+@app.route("/upload", methods = ["GET", "POST"])
+def upload():
+
+    # POST method for image upload
+    if request.method == "POST":
+        if request.files:
+
+            image = request.files["fileImage"]
+            print(image)
+            if image.filename == "":
+                print("blank img")
+            else:
+                image.save("./static/js/img/tmp.jpg")
+
+    # GET method for sending JSON to webpage    
+    else:
+        json_data = process_img()
+        print(json_data)
+        with open('data.json', 'w') as f:
+            json.dump(json_data, f)
+
+        with open('data.json') as json_file:
+            json_data = json.load(json_file)
+        return json_data
+
+    return render_template('up.html')
+
+
+
+if __name__ == "__main__":
+    app.run(debug=True, host=hostName, port=8080)

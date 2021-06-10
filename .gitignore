@@ -3,3 +3,4 @@
 *.cpython-39
 data/*
 images/*
+website/static/js/img/*

@@ -11,47 +11,9 @@ let s3 = document.getElementById("getter")
 var img = document.createElement("img");
 
 window.onload = function() {
-    // s1.onclick = function() {
-    //     window.location.href='/'
-    // }
-
-    // s2.onclick = function() {
-    //     // var input = document.createElement('input');
-    //     // input.type = 'file';
-
-    //     // input.onchange = e => { 
-    //     //     var tmpFile = e.target.files[0];
-    //     //     // Grab the destination URL
-    //     //     $.post( "/upload", {
-    //     //         javascript_data: tmpFile 
-    //     //     });
-            
-    //     // }
-
-    //     // input.click();
-
-    //     console.log("wow")
-    // }
-
-    // s3.onclick = function() {
-    //     fetch('/upload')
-    //         .then(function (response) {
-    //             return response.json();
-    //         }).then(function (text) {
-    //             document.getElementById("line1").innerHTML = text.names[0] + ": " + text.prob[0];
-    //             document.getElementById("line2").innerHTML = text.names[1] + ": " + text.prob[1];
-    //             document.getElementById("line3").innerHTML = text.names[2] + ": " + text.prob[2];
-    //             document.getElementById("line4").innerHTML = text.names[3] + ": " + text.prob[3];
-    //             document.getElementById("line5").innerHTML = text.names[4] + ": " + text.prob[4];
-    //             console.log('GET response:');
-    //             console.log(text.names[0]); 
-    //         });
-    // }
 
     var elementExists = document.getElementById("forImg2");
-    console.log("something ")
     if (elementExists) {
-        console.log("else")
         fetch('/upload')
             .then(function (response) {
                 return response.json();
